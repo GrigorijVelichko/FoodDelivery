@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кошик</title>
+</head>
+<body>
+    <h1>Ваш кошик</h1>
+    {% if cart and cart.items.all %}
+        <ul>
+            {% for item in cart.items.all %}
+                <li>
+                    {{ item.food_item.name }} × {{ item.quantity }} = {{ item.total_price }} грн.
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ваш кошик порожній.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ресторани</title>
+</head>
+<body>
+    <h1>Список ресторанів</h1>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li>
+                <h2><a href="{% url 'deliver:restaurant_detail' restaurant.pk %}">{{ restaurant.name }}</a></h2>
+                <p>{{ restaurant.description }}</p>
+                <p>Адреса: {{ restaurant.address }} | Телефон: {{ restaurant.phone }}</p>
+            </li>
+        {% empty %}
+            <li>Поки немає активних ресторанів.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
